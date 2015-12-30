@@ -190,7 +190,9 @@
   </div>
 <script src="js/jQuery/jQuery-2.1.4.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src="js/moneymask/jquery.maskMoney.min.js" type="text/javascript"></script>
+<script src="http://www.sk8sta13.dx.am/jquery.maskregex/jquery.maskregex.js"></script>
+  <!-- <script src="js/moneymask/jquery.maskMoney.min.js" type="text/javascript"></script> -->
+  
   <script>
     $(".menu-toggle").click(function(e) {
         e.preventDefault();
@@ -380,7 +382,7 @@ $(function(){
           $('#formulario').css("display",'block');
         })
         $('.compra').focus();
-        $('.dinheiro').maskMoney();
+        $('.dinheiro').mask({centsSeparator: ',', thousandSeparator: '.', currencySymbol: ''});
         $('.pula').keypress(function(e) { /* * verifica se o evento é Keycode (para IE e outros browsers) * se não for pega o evento Which (Firefox) */
           troco();
           if($(this).hasClass('btn')){
