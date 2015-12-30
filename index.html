@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Troco OMA</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"?>
+     <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+     <link href="css.css" rel="stylesheet" type="text/css" />
+  </head>
+ <style>
+
+
+.remover{
+  display:none;
+}
+ </style>
+  <body style="background:#009976">
+  <div class="container-fluid" >
+  	<div class="row" >
+	  	<div class="col-md-12" >
+       <center><img style="margin-top:10px" src="img/logo-troco.png"></center>
+      </div>
+    </div>
+  </div>
+ 
+<div id="inicio">
+<center>
+<a href="#" style="background:#008cdf; color:#fff; border-radius:0; width: 80%; font-size:25px;" class="btn iniciar">Abrir Caixa</a>
+
+</center>
+
+</div>
+
+<!-- Div para abastecimento -->
+<div id="abastecer" style="display:none">
+<h2 align="center" style="background:#008cdf; width:100%;color:#fff; padding: 10px;" id="txtaba">ABERTURA</h2>
+    
+      
+      <input type="text" placeholder="Nota de 100" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputnota100"></center>
+    
+     <input type="text" placeholder="Nota de 50" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputnota50"></center>
+   
+      <input type="text" placeholder="Nota de 20" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputnota20"></center>
+  
+      <input type="text" placeholder="Nota de 10" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputnota10"></center>
+
+      <input type="text" placeholder="Nota de 5" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputnota5"></center>
+  
+      <input type="text" placeholder="Nota de 2" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputnota2"></center>
+    
+      <input type="text" placeholder="Moeda de 1 real" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputmoeda100"></center>
+   
+      <input type="text" placeholder="Moeda de 50" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputmoeda50"></center>
+    
+       <input type="text" placeholder="Moeda de 25" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputmoeda25"></center>
+
+       <input type="text" placeholder="Moeda de 10" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputmoeda10"></center>
+  
+       <input type="text" placeholder="Moeda de 5" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputmoeda5"></center>
+  
+       <input type="text" placeholder="Moeda de 1 centavo" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs Inputmoeda1"></center>
+
+
+  <center>
+  <input type="hidden" id='acaoA' value="abastecer">
+<a href="#" style="background:#008cdf; margin:10px;color:#fff; border-radius:0; width: 80%; font-size:20px;" class="btn  btn-abastecer">ABERTURA FINALIZADA</a>
+</center>
+</div>
+
+
+
+
+  <!-- Formulario para o troco -->
+  <div id="formulario" style="display:none">
+  <div id="wrapper">
+   <div id="sidebar-wrapper">
+           <b>Quantidade de Notas e Moedas no caixa </b><br>
+   Nota de 100 -> <b><span id="mnota100"></span></b><br>
+   Nota de 50 -> <b><span id="mnota50"></span></b><br>
+   Nota de 20 -> <b><span id="mnota20"></span></b><br>
+   Nota de 10 -> <b><span id="mnota10"></span></b><br>
+   Nota de 5 -> <b><span id="mnota5"></span></b><br>
+   Nota de 2 -> <b><span id="mnota2"></span></b><br>
+   Moeda de 1 real -> <b><span id="mmoeda100"></span></b><br>
+   Moeda de 50 -> <b><span id="mmoeda50"></span></b><br>
+   Moeda de 25 -> <b><span id="mmoeda25"></span></b><br>
+   Moeda de 10 -> <b><span id="mmoeda10"></span></b><Br>
+   Moeda de 05 -> <b><span id="mmoeda5"></span></b><br>
+   Moeda de 01 -> <b><span id="mmoeda1"></span></b><br>
+  <a href="#" class="btn btn-success btn-reabstecer">Reabastecer</a>
+  <a href="#" class="btn btn-danger btn-tirarcaixar">Tirar dinheiro do caixa</a>
+  <a href="#menu-toggle" class="btn btn-default menu-toggle" style="width:100%" id="">Fechar Menu</a>
+        </div>
+  <div id="page-content-wrapper">
+  <a href="#menu-toggle" class="btn btn-default menu-toggle" style="width:100%" id="">Abrir Menu</a>
+  <div class="row">
+  <div class="col-md-12">
+  <form class="formulario">
+ <div class="form-group">
+    <label for="exampleInputEmail1">Valor da Compra</label>
+    <input type="text" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" data-thousands="." data-decimal="," class="form-control inputs dinheiro compra pula" id="compra" placeholder="Valor da Compra">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Dinheiro </label>
+    <input type="text" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" data-thousands="." data-decimal="," class="form-control inputs dinheiro pula" id="dinheiro" placeholder="Dinheiro">
+  </div>
+  <div class="form-group">
+    
+    <input type="button" value="Calcular" style="width:100%" class="btn pula btn-trocar" id="pula" placeholder="Troco">
+  </div>
+   <div class="form-group">
+    <label for="exampleInputEmail1">Troco</label>
+    <input type="text" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" placeholder="Nota de 100" style="margin:2px 0;width:100%;border:0px;padding:5px;font-size:18px; border-radius:0" class=" inputs form-control" id="troco" placeholder="Troco">
+  </div>
+   </form>
+   </div>
+   
+   </div>
+
+  <div class="row">
+   <div class="notinhas nota100">      
+      <span class="ps"  id="nota100"></span> Nota(s) de 100
+
+    </div>
+    <div class="notinhas nota50">
+     
+      <span class="ps"  id="nota50"></span> Nota(s) de 50
+    </div>
+    <div class="notinhas nota20">
+      
+      <span class="ps"  id="nota20"></span> Nota(s) de 20
+    </div>
+    <div class="notinhas nota10">
+    
+      <span class="ps"  id="nota10"></span> Nota(s) de 10
+    </div>
+
+   <div class="notinhas nota5">
+
+      <span class="ps"  id="nota5"></span> Nota(s) de 5
+    </div>
+    <div class="notinhas nota2">
+     
+      <span class="ps"  id="nota2"></span> Nota(s) de 2
+    </div>
+    <div class="notinhas moeda100">
+      
+      <span class="ps"  id="moeda100"></span> Moeda(s) de 1 real
+    </div>
+    <div class="notinhas moeda50">
+      
+      <span class="ps"  id="moeda50"></span> Moeda(s) de 50
+    </div>
+   <div class="notinhas moeda25">
+    
+      <span class="ps"  id="moeda25"></span> Moeda(s) de 25
+    </div>
+   <div class="notinhas moeda10">
+      
+      <span class="ps"  id="moeda10"></span> Moeda(s) de 10
+    </div>
+    <div class="notinhas moeda5">
+      
+      <span class="ps"  id="moeda5"></span> Moeda(s) de 5 
+    </div>
+    <div class="notinhas moeda1">
+     
+      <span class="ps"  id="moeda1"></span> Moeda(s) de 1 Centavo
+    </div>
+
+  </div>
+  <center><a href="#" style="background:#008cdf; margin:10px;color:#fff; border-radius:0; width: 80%; font-size:20px;" class="btn btn-confirmartroco">Confirmar Troco</a></center>
+
+
+<input type="hidden" id="Qnota100" value="0">
+<input type="hidden" id="Qnota50" value="0">
+<input type="hidden" id="Qnota20" value="0">
+<input type="hidden" id="Qnota10" value="0">
+<input type="hidden" id="Qnota5" value="0">
+<input type="hidden" id="Qnota2" value="0">
+<input type="hidden" id="Qmoeda100" value="0">
+<input type="hidden" id="Qmoeda50" value="0">
+<input type="hidden" id="Qmoeda25" value="0">
+<input type="hidden" id="Qmoeda10" value="0">
+<input type="hidden" id="Qmoeda5" value="0">
+<input type="hidden" id="Qmoeda1" value="0">
+</div>
+</div>
+  </div>
+<script src="js/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="js/moneymask/jquery.maskMoney.min.js" type="text/javascript"></script>
+  <script>
+    $(".menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+  <script>
+function troco(){
+  var compra = $('#compra').val();
+  var dinheiro = $('#dinheiro').val();
+  if(compra != '' && dinheiro != ''){
+
+    compra = compra.replace('.','');
+    compra = compra.replace(',','.');
+    dinheiro = dinheiro.replace('.','');
+    dinheiro = dinheiro.replace(',','.');
+    var troco = parseFloat(dinheiro) - parseFloat(compra);
+    troco = troco.toFixed(2);
+    if(troco > 0){
+        $('#troco').val(troco);
+        nota = [100,50,20,10,5,2];
+        for(x = 0; x < 6; x++){
+        	notas2 = parseInt(troco / nota[x]);
+	        if(parseInt($('#Qnota'+nota[x]).val()) >= notas2){    
+	          notas = parseInt(troco / nota[x]);
+	          troco = troco % nota[x];
+	          troco = troco.toFixed(2);
+	          if(notas > 0){
+	            $("#nota"+nota[x]).html(notas);
+	            $(".nota"+nota[x]).removeClass('remover');
+	            $(".nota"+nota[x]).addClass('trocoativo');
+	          }else{
+	             $(".nota"+nota[x]).addClass('remover');
+	             $(".nota"+nota[x]).removeClass('trocoativo');
+	          }
+	      }
+	      	
+        }
+
+        moeda = ['100','50','25','10','5','1'];
+        for(x = 0; x < 6; x++){
+          moedas2 = parseInt(troco / (parseInt(moeda[x])/100));
+          if(parseInt($('#Qmoeda'+moeda[x]).val()) >= moedas2){
+	          moedas = parseInt(troco / (parseInt(moeda[x])/100));
+	          troco = troco % (parseInt(moeda[x])/100);
+	          troco = troco.toFixed(2);
+	          if(moedas > 0){
+	            $("#moeda"+moeda[x]).html(moedas);
+	            $(".moeda"+moeda[x]).removeClass('remover');
+	            $(".moeda"+moeda[x]).addClass('trocoativo');
+	          }else{
+	             $(".moeda"+moeda[x]).addClass('remover');
+	             $(".moeda"+moeda[x]).removeClass('trocoativo');
+	          }
+	      }
+        }
+        if(troco > 0){
+        	alert("Você não tem notas e ou moedas suficiente");
+        	$(".notinhas").addClass('remover');    
+        	$(".moeda"+moeda[x]).removeClass('trocoativo');
+        }
+       
+    }
+  }
+
+
+}
+function atualizarQuantidade(){
+      nota = [100,50,20,10,5,2];
+          for(x = 0; x < 6; x++){
+            var valor = $('#Qnota'+nota[x]).val();
+            if(valor != 0 && valor != '')
+              $('#mnota'+nota[x]).html(valor);
+            else
+              $('#mnota'+nota[x]).html('0');
+          };
+          moeda = ['100','50','25','10','5','1'];
+          for(x = 0; x < 6; x++){
+            var valor = $('#Qmoeda'+moeda[x]).val();
+            if(valor != 0 && valor != '')
+              $('#mmoeda'+moeda[x]).html(valor);
+            else
+              $('#mmoeda'+moeda[x]).html('0');
+          };
+
+}
+
+$(function(){
+
+        $('.iniciar').click(function(){
+          $('#inicio').css("display","none");
+          $('#abastecer').css("display","block");
+
+        });
+         
+        $('.btn-ver').click(function(){
+          if($('.mostarcaixa').hasClass("remover"))
+            $('.mostarcaixa').removeClass("remover");
+          else
+            $('.mostarcaixa').addClass("remover")
+        })
+        $('.btn-confirmartroco').click(function(){
+        	 $('.trocoativo').each(function(index, tr) {
+        	 	var cla = $(tr).attr('class');
+        	 	if(cla != 1){
+        	 		var cla2 = cla.split(' ');
+        	 		for(y = 0; y < cla2.length; y++){
+        	 			if(cla2[y] != 'col-md-3' && cla2[y] != 'notinhas' && cla2[y] != 'trocoativo'){
+        	 				var valor = $('#'+cla2[y]).html();
+        	 				var atual = $('#Q'+cla2[y]).val();
+        	 				var prox = parseInt(atual) - parseInt(valor);
+        	 				var atual = $('#Q'+cla2[y]).val(prox);
+        	 				$('.inputs').val('');
+        	 				$('.ps').html('');
+        	 				$(".notinhas").removeClass('remover');
+        	 				atualizarQuantidade();
+
+        	 			}
+        	 		}
+        	 	}
+        	 })
+        });
+
+         $('.btn-tirarcaixar').click(function(){
+            $('#acaoA').val('retirar');
+            $('#txtaba').html("Tire Dinheiro do caixa");
+            $('.btn-abastecer').html("Retirada Finalizada");
+            $('.inputs').val('');
+            $('#abastecer').css("display",'block');
+            $('#formulario').css("display",'none');
+        })
+        $('.btn-reabstecer').click(function(){
+            $('#acaoA').val('abastecer');
+            $('#txtaba').html("Reabasteça seu caixa");
+            $('.btn-abastecer').html("Reabastecimento Finalizado");
+            $('.inputs').val('');
+            $('#abastecer').css("display",'block');
+            $('#formulario').css("display",'none');
+        })
+        $('.btn-trocar').click(function(){troco();});
+        $('.btn-abastecer').click(function(){
+          if($('#acaoA').val() == 'abastecer'){
+              nota = [100,50,20,10,5,2];
+              for(x = 0; x < 6; x++){
+                var valor = $('.Inputnota'+nota[x]).val();
+                if(valor != 0 && valor != ''){
+                  atual = parseInt($('#Qnota'+nota[x]).val()) + parseInt(valor);
+                  $('#Qnota'+nota[x]).val(atual);
+                }
+              };
+
+              moeda = ['100','50','25','10','5','1'];
+              for(x = 0; x < 6; x++){
+                var valor = $('.Inputmoeda'+moeda[x]).val();
+                if(valor != 0 && valor != ''){
+                   atual = parseInt($('#Qmoeda'+moeda[x]).val()) + parseInt(valor);
+                  $('#Qmoeda'+moeda[x]).val(atual);
+                }
+              };
+           }else{
+             nota = [100,50,20,10,5,2];
+              for(x = 0; x < 6; x++){
+                var valor = $('.Inputnota'+nota[x]).val();
+                if(valor != 0 && valor != ''){
+                  atual = parseInt($('#Qnota'+nota[x]).val()) - parseInt(valor);
+                  if(atual >= 0)
+                    $('#Qnota'+nota[x]).val(atual);
+                  else
+                    $('#Qnota'+nota[x]).val('0');
+                }
+              };
+
+              moeda = ['100','50','25','10','5','1'];
+              for(x = 0; x < 6; x++){
+                var valor = $('.Inputmoeda'+moeda[x]).val();
+                if(valor != 0 && valor != ''){
+                   atual = parseInt($('#Qmoeda'+moeda[x]).val()) - parseInt(valor);
+                  if(atual >= 0)
+                    $('#Qmoeda'+moeda[x]).val(atual);
+                  else
+                    $('#Qmoeda'+moeda[x]).val('0');
+                }
+              }; 
+           }
+          atualizarQuantidade();
+          $('#abastecer').css("display",'none');
+          $('#formulario').css("display",'block');
+        })
+        $('.compra').focus();
+        $('.dinheiro').maskMoney();
+        $('.pula').keypress(function(e) { /* * verifica se o evento é Keycode (para IE e outros browsers) * se não for pega o evento Which (Firefox) */
+          troco();
+          if($(this).hasClass('btn')){
+            $('.compra').focus();
+          }else{
+              if ( e.which == 13 ) {
+                
+                focusable = $('.formulario').find(".pula");
+                 next = focusable.eq(focusable.index(this) + 1);
+                  if (next.length) {
+                  next.focus();
+                  return false;
+              }
+                
+                }
+          }
+
+            
+        })
+
+})
+  </script>
