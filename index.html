@@ -420,7 +420,6 @@ $(function(){
             thousandsSeparator: '.'
         });
         $('.pula').keypress(function(e) { /* * verifica se o evento é Keycode (para IE e outros browsers) * se não for pega o evento Which (Firefox) */
-          troco();
           if($(this).hasClass('btn')){
             $('.compra').focus();
           }else{
@@ -437,7 +436,8 @@ $(function(){
           }
 
             
-        })
+        });
+       
 
 })
   </script>
