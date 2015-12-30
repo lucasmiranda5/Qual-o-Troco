@@ -233,14 +233,13 @@
     </script>
   <script>
 function troco(){
+
   var compra = $('#compra').val();
   var dinheiro = $('#dinheiro').val();
+
   if(compra != '' && dinheiro != ''){
 
-    compra = compra.replace('.','');
-    compra = compra.replace(',','.');
-    dinheiro = dinheiro.replace('.','');
-    dinheiro = dinheiro.replace(',','.');
+  
     var troco = parseFloat(dinheiro) - parseFloat(compra);
     troco = troco.toFixed(2);
     if(troco > 0){
