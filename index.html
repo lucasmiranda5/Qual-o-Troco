@@ -45,7 +45,6 @@
   var key = ( theEvent.which ) ? theEvent.which : theEvent.keyCode
   key = String.fromCharCode( key );
   var regex = /[0-9]|\.|\,/;
-  alert(evt.which);
   if ([evt.keyCode||evt.which]==8) //this is to allow backspace
       return true;
   if( !regex.test(key) ) {
